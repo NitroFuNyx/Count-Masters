@@ -13,7 +13,6 @@ public class VictorySreenUI : MonoBehaviour
     private void OnDisable()
     {
         GamestagesFSM.Instance.FinishedChanged -= ShowUi;
-
     }
 
     public void ShowUi()
@@ -22,6 +21,4 @@ public class VictorySreenUI : MonoBehaviour
         victoryCanvas.interactable = true;
         victoryCanvas.blocksRaycasts = true;
     }
-    
-    
 }

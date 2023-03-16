@@ -3,6 +3,7 @@ using UnityEngine;
 public class StartUI : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
+
     void Start()
     {
         Time.timeScale = 0.25f;

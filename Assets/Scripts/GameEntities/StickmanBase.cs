@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 public abstract class StickmanBase : MonoBehaviour
@@ -13,8 +11,6 @@ public abstract class StickmanBase : MonoBehaviour
     public GameObject Blood => blood;
 
 
-   
-
     public StickmanColliderHandler StickmenColliderHandler => stickmenColliderHandler;
 
     public Transform StickmanTransform => stickmanTransform;
@@ -22,7 +18,7 @@ public abstract class StickmanBase : MonoBehaviour
     public StickmenFormatter Formatter => stickmenFormatter;
 
     public Animator Animator1 => _animator;
-    
+
     protected void EnableRunAnimation()
     {
         Animator1.SetBool("run", true);

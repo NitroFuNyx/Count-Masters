@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerAttacker : MonoBehaviour
@@ -19,7 +18,6 @@ public class PlayerAttacker : MonoBehaviour
         {
             _instance = this;
         }
-
     }
 
     private void OnDestroy()
@@ -29,11 +27,10 @@ public class PlayerAttacker : MonoBehaviour
 
     #endregion
 
-  
 
     private void Update()
     {
-        if (GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Attacking&& enemy!=null)
+        if (GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Attacking && enemy != null)
             AttackEnemy();
     }
 

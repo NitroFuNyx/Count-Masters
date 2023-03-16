@@ -35,25 +35,25 @@ public class StickmanColliderHandler : MonoBehaviour
         }
 
         if (other.CompareTag("Ramp"))
-            stickmanBase.StickmanTransform.DOJump(stickmanBase.StickmanTransform.position, 1f, 1, 1f).SetEase(Ease.Flash);
+            stickmanBase.StickmanTransform.DOJump(stickmanBase.StickmanTransform.position, 1f, 1, 1f)
+                .SetEase(Ease.Flash);
         if (other.CompareTag("Stair"))
         {
             transform.parent.parent = null;
-            transform.parent = null; 
+            transform.parent = null;
             GetComponent<Rigidbody>().isKinematic = GetComponent<Collider>().isTrigger = false;
-            stickmanBase.Animator1.SetBool("run",false);
+            stickmanBase.Animator1.SetBool("run", false);
 
             if (!AnimatedCamera.Instance.GetCameraStatus())
                 AnimatedCamera.Instance.StartFinalView();
 
             if (stickmenHolder.transform.childCount == 1)
             {
-                other.GetComponent<Renderer>().material.DOColor(new Color(0.4f, 0.98f, 0.65f), 0.5f).SetLoops(1000, LoopType.Yoyo)
+                other.GetComponent<Renderer>().material.DOColor(new Color(0.4f, 0.98f, 0.65f), 0.5f)
+                    .SetLoops(1000, LoopType.Yoyo)
                     .SetEase(Ease.Flash);
                 GamestagesFSM.Instance.Finish();
-                
             }
-            
         }
 
         if (other.CompareTag("Spikes"))
@@ -61,7 +61,6 @@ public class StickmanColliderHandler : MonoBehaviour
             stickmanBase.Blood.SetActive(true);
 
             stickmenHolder.RemoveStickman(stickmanBase);
-            
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -45,11 +44,11 @@ public class PlayerMovement : MonoBehaviour
             GamestagesFSM.Instance.Running();
         if (GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Running ||
             GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Attacking)
-            {
-             MovePlayerBySides();
+        {
+            MovePlayerBySides();
             if (GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.MovingForward)
                 MoveForward();
-            }
+        }
 
         if (GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.MovingForward ||
             GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Running ||

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class GamestagesFSM : MonoBehaviour
@@ -30,16 +29,14 @@ public class GamestagesFSM : MonoBehaviour
         {
             _instance = this;
         }
-
     }
-
-   
 
     #endregion
 
     public event Action RunningChanged;
     public event Action FinishedChanged;
     public event Action LooseChanged;
+
     public void Menu()
     {
         switch (CurrentState)
@@ -53,7 +50,6 @@ public class GamestagesFSM : MonoBehaviour
             case State.MovingForward:
                 _currentState = State.Menu;
                 break;
-            
         }
     }
 
@@ -61,7 +57,6 @@ public class GamestagesFSM : MonoBehaviour
     {
         switch (CurrentState)
         {
-            
             case State.Menu:
                 _currentState = State.Running;
                 break;
@@ -71,7 +66,6 @@ public class GamestagesFSM : MonoBehaviour
             case State.Finish:
                 _currentState = State.Running;
                 break;
-            
         }
 
         OnRunningChanged();
@@ -81,7 +75,6 @@ public class GamestagesFSM : MonoBehaviour
     {
         switch (CurrentState)
         {
-            
             case State.Running:
                 _currentState = State.Attacking;
                 break;
@@ -98,11 +91,11 @@ public class GamestagesFSM : MonoBehaviour
             case State.MovingForward:
                 _currentState = State.Finish;
                 break;
-            
         }
-        FinishedChanged?.Invoke();
 
+        FinishedChanged?.Invoke();
     }
+
     public void Loose()
     {
         switch (CurrentState)
@@ -113,11 +106,11 @@ public class GamestagesFSM : MonoBehaviour
             case State.Running:
                 _currentState = State.Loose;
                 break;
-            
         }
 
         OnLooseChanged();
     }
+
     public void MovingForward()
     {
         switch (CurrentState)
@@ -128,9 +121,9 @@ public class GamestagesFSM : MonoBehaviour
             case State.Running:
                 _currentState = State.MovingForward;
                 break;
-            
         }
     }
+
     public void CreatingTower()
     {
         switch (CurrentState)
@@ -138,8 +131,6 @@ public class GamestagesFSM : MonoBehaviour
             case State.Running:
                 _currentState = State.CreatingTower;
                 break;
-            
-            
         }
     }
 

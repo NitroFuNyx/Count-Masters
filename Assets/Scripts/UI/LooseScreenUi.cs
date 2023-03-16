@@ -13,7 +13,6 @@ public class LooseScreenUi : MonoBehaviour
     private void OnDisable()
     {
         GamestagesFSM.Instance.LooseChanged -= ShowUi;
-
     }
 
     private void ShowUi()
@@ -22,5 +21,4 @@ public class LooseScreenUi : MonoBehaviour
         looseCanvas.interactable = true;
         looseCanvas.blocksRaycasts = true;
     }
-
 }

@@ -10,9 +10,10 @@ public class GatePreSetter : MonoBehaviour
     private Operations _operation;
     private int _gateNumber;
     private string _finalText;
-    
+
     [SerializeField] private int minEnemyAmount;
     [SerializeField] private int maxEnemyAmount;
+
     private void Awake()
     {
         var operation = Random.Range(0, 2);

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerResourcesHolder : MonoBehaviour
@@ -19,15 +18,13 @@ public class PlayerResourcesHolder : MonoBehaviour
         GamestagesFSM.Instance.FinishedChanged += SaveCoins;
 
         _coins = LoadCoins();
-        
-        
     }
 
     public void AddCoins(int value)
     {
         _coins += value;
     }
-    
+
     private void OnEnable()
     {
         if (Instance == null)
@@ -38,12 +35,11 @@ public class PlayerResourcesHolder : MonoBehaviour
     {
         _instance = null;
         GamestagesFSM.Instance.FinishedChanged -= SaveCoins;
-
     }
 
     private void SaveCoins()
     {
-        PlayerPrefs.SetInt(Resources.Coins.ToString(),_coins);
+        PlayerPrefs.SetInt(Resources.Coins.ToString(), _coins);
     }
 
     private int LoadCoins()

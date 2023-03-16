@@ -21,7 +21,6 @@ public class AnimatedCamera : MonoBehaviour
         if (Instance == null)
         {
             _instance = this;
-            
         }
     }
 
@@ -35,7 +34,7 @@ public class AnimatedCamera : MonoBehaviour
         _cinemachineTransposer = GetComponent<CinemachineVirtualCamera>()
             .GetCinemachineComponent<CinemachineTransposer>();
 
-        _cinemachineComposer =GetComponent<CinemachineVirtualCamera>()
+        _cinemachineComposer = GetComponent<CinemachineVirtualCamera>()
             .GetCinemachineComponent<CinemachineComposer>();
     }
 
@@ -48,12 +47,14 @@ public class AnimatedCamera : MonoBehaviour
     {
         return _moveTheCamera;
     }
+
     private void Update()
     {
-        if(_moveTheCamera && playerTransform.childCount > 1)
+        if (_moveTheCamera && playerTransform.childCount > 1)
         {
-            _cinemachineTransposer.m_FollowOffset = new Vector3(4.5f, Mathf.Lerp(_cinemachineTransposer.m_FollowOffset.y,
-                playerTransform.GetChild(1).position.y + 1.2f, Time.deltaTime * 1f), -5f);
+            _cinemachineTransposer.m_FollowOffset = new Vector3(4.5f,
+                Mathf.Lerp(_cinemachineTransposer.m_FollowOffset.y,
+                    playerTransform.GetChild(1).position.y + 1.2f, Time.deltaTime * 1f), -5f);
 
             _cinemachineComposer.m_TrackedObjectOffset = new Vector3(0f,
                 Mathf.Lerp(_cinemachineComposer.m_TrackedObjectOffset.y,

@@ -6,28 +6,22 @@ public class StickmenCounterPresenter : MonoBehaviour
     [SerializeField] private TextMeshPro counterText;
     [SerializeField] private StickmenCounter counter;
 
-   
-
-   
 
     private void Start()
     {
-        
         counter.OnAmountChange += UpdateCounter;
         UpdateCounter();
     }
 
-    public void GainStickmen(int value,Operations symbol)
+    public void GainStickmen(int value, Operations symbol)
     {
-        counter.GainStickmen(value,symbol);
+        counter.GainStickmen(value, symbol);
     }
 
     public void DeductStickman()
     {
         counter.DeductStickman();
     }
-
-
 
 
     public int GetStickmenAmount()

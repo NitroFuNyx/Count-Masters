@@ -14,7 +14,6 @@ public class EnemyAttacker : MonoBehaviour
         {
             AttackEnemy();
         }
-        
     }
 
     private void AttackEnemy()
@@ -40,11 +39,12 @@ public class EnemyAttacker : MonoBehaviour
                 }
             }
         }
+
         if (enemy.GetAmount() <= 0)
         {
             GamestagesFSM.Instance.Loose();
             _attack = false;
-            SetRunAnimation( false);
+            SetRunAnimation(false);
 
             stickmenFormatter.FormatStickMan();
         }
@@ -54,14 +54,14 @@ public class EnemyAttacker : MonoBehaviour
     {
         this.enemy = enemy;
         _attack = true;
-        SetRunAnimation( true);
+        SetRunAnimation(true);
     }
 
     private void SetRunAnimation(bool toggle)
     {
         for (int i = 0; i < stickmenHolder.GetAmount(); i++)
         {
-            stickmenHolder.GetStickMan(i).Animator1.SetBool("run",toggle);
+            stickmenHolder.GetStickMan(i).Animator1.SetBool("run", toggle);
         }
     }
 }
