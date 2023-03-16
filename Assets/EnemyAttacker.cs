@@ -52,5 +52,9 @@ public class EnemyAttacker : MonoBehaviour
     {
         this.enemy = enemy;
         _attack = true;
+        for (int i = 0; i < stickmenHolder.GetAmount(); i++)
+        {
+            stickmenHolder.GetStickMan(i).CheckAvailableAnimation();
+        }
     }
 }

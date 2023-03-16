@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-
-
     private Camera _camera;
     private Vector3 _mouseStartPos;
     private Vector3 _playerStartPos;

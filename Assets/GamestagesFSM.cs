@@ -37,7 +37,8 @@ public class GamestagesFSM : MonoBehaviour
 
     #endregion
 
-
+    public event Action RunningChanged;
+    public event Action FinishedChanged;
     public void Menu()
     {
         switch (CurrentState)
@@ -56,6 +57,7 @@ public class GamestagesFSM : MonoBehaviour
     {
         switch (CurrentState)
         {
+            
             case State.Menu:
                 _currentState = State.Running;
                 break;
@@ -64,6 +66,8 @@ public class GamestagesFSM : MonoBehaviour
                 break;
             
         }
+
+        OnRunningChanged();
     }
 
     public void Attacking()
@@ -86,6 +90,8 @@ public class GamestagesFSM : MonoBehaviour
                 break;
             
         }
+        FinishedChanged?.Invoke();
+
     }
     public void Loose()
     {
@@ -101,5 +107,14 @@ public class GamestagesFSM : MonoBehaviour
         }
     }
 
-   
+
+    protected virtual void OnRunningChanged()
+    {
+        RunningChanged?.Invoke();
+    }
+
+    protected virtual void OnFinishedChanged()
+    {
+        FinishedChanged?.Invoke();
+    }
 }

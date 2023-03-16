@@ -30,6 +30,7 @@ public class StickmanColliderHandler : MonoBehaviour
         {
             if (stickmenHolder == null || stickman == null) return;
             _collided = true;
+            stickman.Blood.SetActive(true);
             stickmenHolder.RemoveStickman(stickman);
         }
 
