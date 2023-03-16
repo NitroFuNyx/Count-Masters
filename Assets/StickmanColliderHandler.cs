@@ -46,7 +46,7 @@ public class StickmanColliderHandler : MonoBehaviour
             if (!AnimatedCamera.Instance.GetCameraStatus())
                 AnimatedCamera.Instance.StartFinalView();
 
-            if (stickmenHolder.transform.childCount == 2)
+            if (stickmenHolder.transform.childCount == 1)
             {
                 other.GetComponent<Renderer>().material.DOColor(new Color(0.4f, 0.98f, 0.65f), 0.5f).SetLoops(1000, LoopType.Yoyo)
                     .SetEase(Ease.Flash);
