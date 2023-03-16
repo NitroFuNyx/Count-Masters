@@ -14,7 +14,7 @@ public class LevelChanger : MonoBehaviour
 
     private void SwitchScene()
     {
-        if (!(SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCount))
+        if ((SceneManager.GetActiveScene().buildIndex +1 <= SceneManager.sceneCount+1))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else SceneManager.LoadScene(0);
     }

@@ -39,6 +39,7 @@ public class GamestagesFSM : MonoBehaviour
 
     public event Action RunningChanged;
     public event Action FinishedChanged;
+    public event Action LooseChanged;
     public void Menu()
     {
         switch (CurrentState)
@@ -114,6 +115,8 @@ public class GamestagesFSM : MonoBehaviour
                 break;
             
         }
+
+        OnLooseChanged();
     }
     public void MovingForward()
     {
@@ -148,5 +151,10 @@ public class GamestagesFSM : MonoBehaviour
     protected virtual void OnFinishedChanged()
     {
         FinishedChanged?.Invoke();
+    }
+
+    protected virtual void OnLooseChanged()
+    {
+        LooseChanged?.Invoke();
     }
 }

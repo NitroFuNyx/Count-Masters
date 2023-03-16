@@ -10,7 +10,9 @@ public class GatePreSetter : MonoBehaviour
     private Operations _operation;
     private int _gateNumber;
     private string _finalText;
-
+    
+    [SerializeField] private int minEnemyAmount;
+    [SerializeField] private int maxEnemyAmount;
     private void Awake()
     {
         var operation = Random.Range(0, 2);
@@ -24,7 +26,7 @@ public class GatePreSetter : MonoBehaviour
             case 1:
                 _finalText = "+";
                 _operation = Operations.Plus;
-                _gateNumber = Random.Range(1, 65);
+                _gateNumber = Random.Range(minEnemyAmount, maxEnemyAmount);
                 break;
             default:
                 throw new Exception("impossible value reached");
