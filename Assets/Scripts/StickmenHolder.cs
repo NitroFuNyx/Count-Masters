@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class StickmenHolder : MonoBehaviour
 {
+    
     [SerializeField] private List<StickmanBase> _stickmen;
     [SerializeField] private StickmenCounterPresenter _stickmenCounterPresenter;
-
+    
     public void AddToList(StickmanBase stickmanBase)
     {
         _stickmen.Add(stickmanBase);
@@ -20,7 +21,7 @@ public class StickmenHolder : MonoBehaviour
         Destroy(stickman.gameObject);
         _stickmenCounterPresenter.DeductStickman();
         _stickmenCounterPresenter.UpdateCounter();
-        if (_stickmen.Count <= 0)
+        if (_stickmen.Count <= 0&&gameObject.CompareTag("Player"))
         {
             GamestagesFSM.Instance.Loose();
         }
@@ -35,7 +36,7 @@ public class StickmenHolder : MonoBehaviour
         Destroy(stickmanBase.gameObject);
         _stickmenCounterPresenter.DeductStickman();
         _stickmenCounterPresenter.UpdateCounter();
-        if (_stickmen.Count <= 0)
+        if (_stickmen.Count <= 0&&gameObject.CompareTag("Player"))
         {
             GamestagesFSM.Instance.Loose();
 
