@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GamestagesFSM : MonoBehaviour
@@ -9,7 +10,9 @@ public class GamestagesFSM : MonoBehaviour
         Running,
         Attacking,
         Finish,
-        Loose
+        Loose,
+        CreatingTower,
+        MovingForward
     }
 
     private State _currentState = State.Menu;
@@ -30,10 +33,7 @@ public class GamestagesFSM : MonoBehaviour
 
     }
 
-    private void OnDestroy()
-    {
-        _instance = null;
-    }
+   
 
     #endregion
 
@@ -49,6 +49,9 @@ public class GamestagesFSM : MonoBehaviour
             case State.Loose:
                 _currentState = State.Menu;
                 break;
+            case State.MovingForward:
+                _currentState = State.Menu;
+                break;
             
         }
     }
@@ -62,6 +65,9 @@ public class GamestagesFSM : MonoBehaviour
                 _currentState = State.Running;
                 break;
             case State.Attacking:
+                _currentState = State.Running;
+                break;
+            case State.Finish:
                 _currentState = State.Running;
                 break;
             
@@ -88,6 +94,9 @@ public class GamestagesFSM : MonoBehaviour
             case State.Running:
                 _currentState = State.Finish;
                 break;
+            case State.MovingForward:
+                _currentState = State.Finish;
+                break;
             
         }
         FinishedChanged?.Invoke();
@@ -106,7 +115,30 @@ public class GamestagesFSM : MonoBehaviour
             
         }
     }
-
+    public void MovingForward()
+    {
+        switch (CurrentState)
+        {
+            case State.CreatingTower:
+                _currentState = State.MovingForward;
+                break;
+            case State.Running:
+                _currentState = State.MovingForward;
+                break;
+            
+        }
+    }
+    public void CreatingTower()
+    {
+        switch (CurrentState)
+        {
+            case State.Running:
+                _currentState = State.CreatingTower;
+                break;
+            
+            
+        }
+    }
 
     protected virtual void OnRunningChanged()
     {

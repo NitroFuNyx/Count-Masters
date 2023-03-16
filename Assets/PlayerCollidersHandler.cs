@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerCollidersHandler : MonoBehaviour
 {
     [SerializeField] private StickmenFormatter stickmenFormatter;
+    [SerializeField] private GameObject cameraTwo;
+    [SerializeField] private StickmenCounterPresenter stickmenCounterPresenter;
+    
     #region Singleton
     private static PlayerCollidersHandler _instance;
     public static PlayerCollidersHandler Instance => _instance;
@@ -40,10 +43,18 @@ public class PlayerCollidersHandler : MonoBehaviour
            // other.transform.GetChild(1).GetComponent<enemyManager>().AttackThem(transform);
 
         }
-        if (other.CompareTag("Formatter"))
+        else if (other.CompareTag("Formatter"))
         {
             stickmenFormatter.FormatStickMan();
             
+        }
+
+        else if (other.CompareTag("FinishLine"))
+        {
+            cameraTwo.SetActive(true);
+            HumanTowerBuilder.Instance.CreateTower();
+            GamestagesFSM.Instance.CreatingTower();
+            stickmenCounterPresenter.gameObject.SetActive(false);
         }
     }
     private void OnTriggerExit(Collider other)

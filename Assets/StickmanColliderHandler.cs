@@ -5,7 +5,7 @@ using WSWhitehouse.TagSelector;
 public class StickmanColliderHandler : MonoBehaviour
 {
     [TagSelector] public string stickmanTag = "";
-    [SerializeField] private Stickman stickman;
+    [SerializeField] private StickmanBase stickmanBase;
 
     [SerializeField] private StickmenHolder stickmenHolder;
 
@@ -28,13 +28,40 @@ public class StickmanColliderHandler : MonoBehaviour
         if (_collided) return;
         if (other.CompareTag(stickmanTag))
         {
-            if (stickmenHolder == null || stickman == null) return;
+            if (stickmenHolder == null || stickmanBase == null) return;
             _collided = true;
-            stickman.Blood.SetActive(true);
-            stickmenHolder.RemoveStickman(stickman);
+            stickmanBase.Blood.SetActive(true);
+            stickmenHolder.RemoveStickman(stickmanBase);
         }
 
         if (other.CompareTag("Ramp"))
-            stickman.StickmanTransform.DOJump(stickman.StickmanTransform.position, 1f, 1, 1f).SetEase(Ease.Flash);
+            stickmanBase.StickmanTransform.DOJump(stickmanBase.StickmanTransform.position, 1f, 1, 1f).SetEase(Ease.Flash);
+        if (other.CompareTag("Stair"))
+        {
+            transform.parent.parent = null;
+            transform.parent = null; 
+            GetComponent<Rigidbody>().isKinematic = GetComponent<Collider>().isTrigger = false;
+            stickmanBase.Animator1.SetBool("run",false);
+
+            if (!AnimatedCamera.Instance.GetCameraStatus())
+                AnimatedCamera.Instance.StartFinalView();
+
+            if (stickmenHolder.transform.childCount == 2)
+            {
+                other.GetComponent<Renderer>().material.DOColor(new Color(0.4f, 0.98f, 0.65f), 0.5f).SetLoops(1000, LoopType.Yoyo)
+                    .SetEase(Ease.Flash);
+                GamestagesFSM.Instance.Finish();
+                
+            }
+            
+        }
+
+        if (other.CompareTag("Spikes"))
+        {
+            stickmanBase.Blood.SetActive(true);
+
+            stickmenHolder.RemoveStickman(stickmanBase);
+            
+        }
     }
 }

@@ -44,6 +44,8 @@ public class EnemyAttacker : MonoBehaviour
         {
             GamestagesFSM.Instance.Loose();
             _attack = false;
+            SetRunAnimation( false);
+
             stickmenFormatter.FormatStickMan();
         }
     }
@@ -52,9 +54,14 @@ public class EnemyAttacker : MonoBehaviour
     {
         this.enemy = enemy;
         _attack = true;
+        SetRunAnimation( true);
+    }
+
+    private void SetRunAnimation(bool toggle)
+    {
         for (int i = 0; i < stickmenHolder.GetAmount(); i++)
         {
-            stickmenHolder.GetStickMan(i).CheckAvailableAnimation();
+            stickmenHolder.GetStickMan(i).Animator1.SetBool("run",toggle);
         }
     }
 }

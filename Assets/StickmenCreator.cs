@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StickmenCreator : MonoBehaviour
 {
-    [SerializeField] private Stickman stickmanPrefab;
+    [SerializeField] private StickmanBase stickmanBasePrefab;
     [SerializeField] private StickmenFormatter stickmenFormatter;
     [SerializeField] private StickmenCounterPresenter stickmenCounterPresenter;
     [SerializeField] private StickmenHolder stickmenHolder;
@@ -29,7 +29,7 @@ public class StickmenCreator : MonoBehaviour
         if (amount <= 0) return;
         for (int i = 0; i < amount; i++)
         {
-           var stickman =  Instantiate(stickmanPrefab, transform.position, gameObject.transform.rotation, transform);
+           var stickman =  Instantiate(stickmanBasePrefab, transform.position, gameObject.transform.rotation, transform);
            stickman.StickmenColliderHandler.SetHolder(stickmenHolder);
            stickman.StickmenColliderHandler.SetCounter(stickmenCounterPresenter);
            stickmenHolder.AddToList(stickman);

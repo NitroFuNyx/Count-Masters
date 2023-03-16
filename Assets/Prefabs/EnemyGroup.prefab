@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 3047801551982877993}
-  counter: {fileID: 0}
+  counter: {fileID: 475984368}
 --- !u!1 &3047801551982877999
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3047801551982877999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.008}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168,7 +168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.576}
+  m_AnchoredPosition: {x: 0, y: 0.436}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3047801551982877992
@@ -402,6 +402,8 @@ GameObject:
   - component: {fileID: 3047801552879384920}
   - component: {fileID: 3047801552879384921}
   - component: {fileID: 3047801552879384922}
+  - component: {fileID: 475984368}
+  - component: {fileID: 475984369}
   m_Layer: 0
   m_Name: EnemyGroup
   m_TagString: Enemy
@@ -436,8 +438,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.7, y: 7.6999993, z: 0.6708513}
-  m_Center: {x: 0, y: 1.0541255e-15, z: -0.23542562}
+  m_Size: {x: 2.77, y: 0.24, z: 2.67}
+  m_Center: {x: 0, y: -0.06, z: 0.01}
 --- !u!114 &3047801552879384920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,8 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea95081f40a085548879b65b782af71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickmanPrefab: {fileID: 7591365698590098012, guid: fb8aff07781475e45b4657a380fedf71, type: 3}
+  stickmanBasePrefab: {fileID: -8207046452946204632, guid: fb8aff07781475e45b4657a380fedf71, type: 3}
   stickmenFormatter: {fileID: 3047801552879384921}
+  stickmenCounterPresenter: {fileID: 3047801551938665053}
+  stickmenHolder: {fileID: 475984369}
   isEnemy: 1
   minEnemyAmount: 60
   maxEnemyAmount: 5
@@ -467,6 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580b554f84c62f745b09ced75288a7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickmenHolder: {fileID: 475984369}
+  stickmenCounterPresenter: {fileID: 3047801551938665053}
   distanceFactor: 0.086
   radius: 1
 --- !u!114 &3047801552879384922
@@ -481,3 +487,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807773001230f1e4ab1b71069e2f7f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickmenHolder: {fileID: 475984369}
+  enemy: {fileID: 0}
+  stickmenFormatter: {fileID: 3047801552879384921}
+--- !u!114 &475984368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047801552879384925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce6ad483faf48d3b817c663d38e26dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickmenAmount: 0
+--- !u!114 &475984369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047801552879384925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458159dbdc0a5e741aecc4a8cbd84433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stickmen: []
+  _stickmenCounterPresenter: {fileID: 3047801551938665053}

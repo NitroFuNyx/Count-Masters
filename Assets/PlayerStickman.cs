@@ -1,24 +1,14 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class Stickman : MonoBehaviour
+public class PlayerStickman : StickmanBase
 {
-    [SerializeField] private StickmanColliderHandler stickmenColliderHandler;
-    [SerializeField] private Transform stickmanTransform;
-    [SerializeField] private StickmenFormatter stickmenFormatter;
-    [SerializeField] private GameObject blood;
-    [SerializeField] private Animator _animator;
-
-    public GameObject Blood => blood;
-
-
     private void OnEnable()
     {
         StartCoroutine(LateOnEnable());
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         GamestagesFSM.Instance.RunningChanged -= EnableRunAnimation;
         GamestagesFSM.Instance.FinishedChanged -= DisaableRunAnimation;
@@ -30,8 +20,9 @@ public class Stickman : MonoBehaviour
         GamestagesFSM.Instance.RunningChanged += EnableRunAnimation;
         GamestagesFSM.Instance.FinishedChanged += DisaableRunAnimation;
         if(gameObject.CompareTag("PlayerStickman"))
-        CheckAvailableAnimation();
+            CheckAvailableAnimation();
     }
+   
 
     public void CheckAvailableAnimation()
     {
@@ -42,19 +33,5 @@ public class Stickman : MonoBehaviour
                  GamestagesFSM.Instance.CurrentState == GamestagesFSM.State.Menu)
             DisaableRunAnimation();
     }
-    private void EnableRunAnimation()
-    {
-            _animator.SetBool("run", true);
-    }
-
-    private void DisaableRunAnimation()
-    {
-            _animator.SetBool("run", false);
-    }
-
-    public StickmanColliderHandler StickmenColliderHandler => stickmenColliderHandler;
-
-    public Transform StickmanTransform => stickmanTransform;
-
-    public StickmenFormatter Formatter => stickmenFormatter;
+    
 }

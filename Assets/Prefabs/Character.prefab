@@ -1147,7 +1147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7591365698590098012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.288, z: -14.776}
+  m_LocalPosition: {x: 0, y: -0.023, z: -14.776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1171,7 +1171,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!136 &7320771825888498864
 CapsuleCollider:
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591365698590098012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b6b3a699ee8ed41b2298d564de7626, type: 3}
+  m_Script: {fileID: 11500000, guid: 731f5ea924cfa4d4c8f916ff6afdc1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stickmenColliderHandler: {fileID: -8072838569077821406}
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickmanTag: EnemyStickman
-  stickman: {fileID: -4136264814200786413}
+  stickmanBase: {fileID: -4136264814200786413}
   stickmenHolder: {fileID: 0}
 --- !u!1 &7682467704764997895
 GameObject:
@@ -1558,12 +1558,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7066748480651008230}
     m_Modifications:
+    - target: {fileID: 8367725848041230027, guid: 4277bf2e3ed43be4da7d7659e6730da0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8367736011905159141, guid: 4277bf2e3ed43be4da7d7659e6730da0, type: 3}
       propertyPath: m_Name
       value: Blood_Arterial_Medium_Blue 1
       objectReference: {fileID: 0}
     - target: {fileID: 8367736011905159141, guid: 4277bf2e3ed43be4da7d7659e6730da0, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367736011905159141, guid: 4277bf2e3ed43be4da7d7659e6730da0, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8373984152362733231, guid: 4277bf2e3ed43be4da7d7659e6730da0, type: 3}

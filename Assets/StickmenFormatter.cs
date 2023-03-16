@@ -17,7 +17,7 @@ public class StickmenFormatter : MonoBehaviour
             var x = distanceFactor * Mathf.Sqrt(i) * Mathf.Cos(i * radius);
             var z = distanceFactor * Mathf.Sqrt(i) * Mathf.Sin(i * radius);
             
-            var newPos = new Vector3(x,-0.152f,z);
+            var newPos = new Vector3(x,-0.023f,z);
             stickmenHolder.GetStickMan(i).StickmanTransform.localRotation= Quaternion.identity;
 
             stickmenHolder.GetStickMan(i).transform.DOLocalMove(newPos, 0.5f).SetEase(Ease.OutBack);

@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 7320771825888498865}
   - component: {fileID: 7320771825888498864}
   - component: {fileID: 7320771825888498871}
-  - component: {fileID: -2662324563966737907}
+  - component: {fileID: -8207046452946204632}
   - component: {fileID: -7077901748611301935}
   m_Layer: 0
   m_Name: Enemy
@@ -1207,7 +1207,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-2662324563966737907
+--- !u!114 &-8207046452946204632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591365698590098012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b6b3a699ee8ed41b2298d564de7626, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f9a9aaa0c916541a011ae03d111980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stickmenColliderHandler: {fileID: -7077901748611301935}
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickmanTag: PlayerStickman
-  stickman: {fileID: -2662324563966737907}
+  stickmanBase: {fileID: -8207046452946204632}
   stickmenHolder: {fileID: 0}
 --- !u!1 &7682467704764997895
 GameObject:

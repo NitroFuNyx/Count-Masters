@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class StickmenHolder : MonoBehaviour
 {
-    [SerializeField]private List<Stickman> _stickmen;
+    [SerializeField]private List<StickmanBase> _stickmen;
     [SerializeField] private StickmenCounterPresenter _stickmenCounterPresenter;
 
-    public void AddToList(Stickman stickman)
+    public void AddToList(StickmanBase stickmanBase)
     {
-        _stickmen.Add(stickman);
+        _stickmen.Add(stickmanBase);
     }
     
     public void RemoveFromList(int index)
@@ -24,15 +24,15 @@ public class StickmenHolder : MonoBehaviour
         
     }
 
-    public void RemoveStickman(Stickman stickman)
+    public void RemoveStickman(StickmanBase stickmanBase)
     {
-        if (stickman == null || _stickmen.Count < 0) return;
-        _stickmen.Remove(stickman);
-        Destroy(stickman.gameObject);
+        if (stickmanBase == null || _stickmen.Count < 0) return;
+        _stickmen.Remove(stickmanBase);
+        Destroy(stickmanBase.gameObject);
         _stickmenCounterPresenter.DeductStickman();
         _stickmenCounterPresenter.UpdateCounter();
     }
-    public Stickman GetStickMan(int index)
+    public StickmanBase GetStickMan(int index)
     {
         return _stickmen[index];
     }
